@@ -6,6 +6,7 @@
     font-family: "Montserrat", sans-serif;
     margin: 0;
     height: 100%;
+    background: #ebedf0;
   }
   
   main {
@@ -66,6 +67,8 @@
     color: white;
     font-weight: bold;
     padding: 0.2rem 0;
+    display: inline-block;
+    vertical-align: middle;
   }
   
   .main-nav__item a:hover,
@@ -75,10 +78,7 @@
   }
   
   .active a {
-      color: #746e6e;
-    background: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+      border-bottom: 3px solid whitesmoke;
   }
   
   .active a:hover,
@@ -212,6 +212,43 @@
     text-decoration: none;
     font-weight: bold;
     padding: 0.2rem 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  transition: .5s ease;
+}
+
+.new-announce {
+  margin-top: 10rem;
+  position: relative;
+  left: 35%;
+  margin-left: -50px;
+}
+
+.new-announce h2 {
+  color: #635f5f;
+  font-weight: bold;
+}
+
+.new-announce textarea {
+  width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 650px;
+  height: 400px;
+  padding: 4px;
+  padding-left: 30px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-size: 14px;
+}
+
+.new-announce a {
+  margin-top: -0.1rem;
 }
 
 @media (min-width: 40rem) {
