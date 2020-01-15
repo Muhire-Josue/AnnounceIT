@@ -81,12 +81,6 @@
       border-bottom: 3px solid whitesmoke;
   }
   
-  .active a:hover,
-  .active a:active {
-    color: white;
-    background: #204969;
-    border: none;
-  }
   
   @media (min-width: 40rem) {
     .main-nav {
