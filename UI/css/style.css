@@ -128,13 +128,6 @@
   .main-footer__link a:active {
     color: #ccc;
   }   
-  
-  @media (min-width: 40rem) {
-    .main-footer__link {
-      display: inline-block;
-      margin: 0 1rem;
-    }
-  }
   .signup-title {
     text-align: center;
     font-size: 1.8rem;
@@ -215,6 +208,7 @@
 }
 
 .container {
+  margin-top: 2rem;
   width: 80%;
   margin: auto;
   overflow: hidden;
@@ -251,10 +245,74 @@
   margin-top: -0.1rem;
 }
 
+#boxes {
+  margin-top: 10%;
+}
+
+#boxes .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  float: left;
+  left: 29%;
+  text-align: center;
+  width: 30%;
+  padding-right: 2%;
+  padding-left: 2%;
+  padding-bottom: 4%;
+  margin-bottom: 18px;
+  margin-right: 18px;
+  border-radius: 8px 8px 8px 8px;
+  border: 0.8px solid #d8d7d7;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background: whitesmoke;
+}
+
+#boxes .box p {
+  color: #646464;
+  text-align: left;
+  font-style: italic;
+}
+
+.box-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 @media (min-width: 40rem) {
   .signup-form {
       margin: auto;
       width: 25rem;
 
   }
+}
+
+@media (min-width: 40rem) {
+  .main-footer__link {
+    display: inline-block;
+    margin: 0 1rem;
+  }
+}
+
+@media(max-width: 768px) {
+  #boxes .box {
+    float: left;
+    width: 100%;
+    margin-bottom: 20.5rem;
+    margin-top: -20rem;
+}
+ .mentor-info{
+     padding-bottom: 1rem;
+     border: 2px solid gray;
+     border-radius: 5px 5px 0 0;
+     overflow: hidden;
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+     float: none;
+     text-align: center;
+     width: 80%;
+     left: 7%;
+     height: auto;
+     margin-left: -50px;
+ }
 }
