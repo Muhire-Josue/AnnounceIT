@@ -315,6 +315,10 @@ main {
     cursor: pointer;
 }
 
+#space {
+    margin-top: 14rem;
+}
+
 #alertBox {
     width: 30%;
     min-height: 100px;
