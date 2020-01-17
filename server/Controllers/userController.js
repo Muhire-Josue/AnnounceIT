@@ -4,8 +4,9 @@ import createUser from '../Helpers/createUser';
 import userTokenGenerator from '../Helpers/userTokenGenerator';
 import successResponse from '../Helpers/successResponse';
 import findByEmail from '../Helpers/findByEmail';
+import User from '../Models/user';
 
-class userController {
+class UserController {
   static welcomeToAPI(req, res) {
     return res.status(200).json({ status: 200, message: 'Welcome to this API enjoy!' });
   }
@@ -13,9 +14,10 @@ class userController {
   static signUp(req, res) {
     const user = req.body;
     user.password = hash.hashSync(user.password);
+    user.id = User.length + 1;
     createUser(user);
     const tokenData = {
-      firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
+      id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
     };
     const token = userTokenGenerator(tokenData);
     const data = {
@@ -27,7 +29,7 @@ class userController {
   static login(req, res) {
     const user = findByEmail(req.body.email);
     const tokenData = {
-      firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
+      id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
     };
     const token = userTokenGenerator(tokenData);
     const data = {
@@ -36,4 +38,4 @@ class userController {
     successResponse(res, 200, 'success', data);
   }
 }
-export default userController;
+export default UserController;
