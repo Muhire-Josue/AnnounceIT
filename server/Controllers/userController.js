@@ -3,6 +3,7 @@ import hash from 'bcrypt-nodejs';
 import createUser from '../Helpers/createUser';
 import userTokenGenerator from '../Helpers/userTokenGenerator';
 import successResponse from '../Helpers/successResponse';
+import findByEmail from '../Helpers/findByEmail';
 
 class userController {
   static welcomeToAPI(req, res) {
@@ -20,7 +21,19 @@ class userController {
     const data = {
       token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumer, address: user.address, is_admin: user.is_admin,
     };
-    successResponse(res, 201, 'User created successfully!', data);
+    successResponse(res, 201, 'success', data);
+  }
+
+  static login(req, res) {
+    const user = findByEmail(req.body.email);
+    const tokenData = {
+      firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
+    };
+    const token = userTokenGenerator(tokenData);
+    const data = {
+      token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumer, address: user.address, is_admin: user.is_admin,
+    };
+    successResponse(res, 200, 'success', data);
   }
 }
 export default userController;
