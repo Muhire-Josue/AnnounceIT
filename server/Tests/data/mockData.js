@@ -24,6 +24,23 @@ const mockData = [
     email: 'user1@andela.com',
     password: 'user',
   },
+  {
+    firstname: 'John',
+    lastname: 'Doe',
+    email: 'user2@andela.com',
+    phoneNumer: '0785505790',
+    password: 'user4',
+    address: 'kigali',
+    is_admin: false,
+  },
+  {
+    text: 'Hello world',
+    end_date: '2020-03-19',
+  },
+  {
+    text: 'Hello world',
+    end_date: '12-12-1998',
+  },
 ];
 
 export default mockData;
