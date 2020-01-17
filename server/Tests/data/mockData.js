@@ -11,6 +11,19 @@ const mockData = [
   {
     firstname: 'John',
   },
+  {
+
+    email: 'user1@andela.com',
+    password: 'user4',
+  },
+  {
+    email: 'user@andela.com',
+    password: 'user4',
+  },
+  {
+    email: 'user1@andela.com',
+    password: 'user',
+  },
 ];
 
 export default mockData;
