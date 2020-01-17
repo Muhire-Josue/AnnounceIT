@@ -18,7 +18,7 @@ class userController {
     };
     const token = userTokenGenerator(tokenData);
     const data = {
-      token, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumer, address: user.address, is_admin: user.is_admin,
+      token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumer, address: user.address, is_admin: user.is_admin,
     };
     successResponse(res, 201, 'User created successfully!', data);
   }
