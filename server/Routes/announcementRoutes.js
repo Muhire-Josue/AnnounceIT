@@ -16,4 +16,5 @@ router.get('/api/v1/announcements', authentication, announcementController.findB
 router.get('/api/v1/announcement/:id', authentication, notFound, authorization, announcementController.getAnnouncement);
 router.delete('/api/v1/announcement/:id', authentication, notFound, checkAdmin, announcementController.delete);
 router.patch('/api/v1/announcements/:id', authentication, notFound, checkAdmin, announcementController.changeStatus);
+router.get('/api/v1/announcemente/', authentication, checkAdmin, announcementController.allAnnouncements);
 export default router;
