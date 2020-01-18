@@ -177,4 +177,15 @@ describe('User tests', () => {
         done();
       });
   });
+
+  it('should an announcement', (done) => {
+    chai.request(server)
+      .get(`/api/v1/announcement/${announcementID}`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
 });

@@ -4,6 +4,7 @@ import successResponse from '../Helpers/successResponse';
 import updateAnnouncement from '../Helpers/updateAnnouncement';
 import findAllAnnouncements from '../Helpers/findAllAnnouncements';
 import findAnnouncementByStatus from '../Helpers/findByStatus';
+import findById from '../Helpers/findById';
 import validStatus from '../Helpers/validateStatus';
 import failureResponse from '../Helpers/failureResponse';
 
@@ -35,6 +36,12 @@ class AnnouncementController {
     }
     const announcements = findAnnouncementByStatus(theSatus, owner);
     return successResponse(res, 200, 'success', announcements);
+  }
+
+  static getAnnouncement(req, res) {
+    const id = parseInt(req.params.id);
+    const announcement = findById(id);
+    return successResponse(res, 200, 'success', announcement);
   }
 }
 export default AnnouncementController;
