@@ -7,6 +7,8 @@ import mockData from './data/mockData';
 chai.use(chaiHttp);
 chai.should();
 let userToken = '';
+let anotherUserToken = '';
+let announcementID;
 const { expect } = chai;
 
 describe('User tests', () => {
@@ -32,6 +34,18 @@ describe('User tests', () => {
         done();
       });
   });
+  it('should be signup', (done) => {
+    const user = mockData[9];
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(user)
+      .end((error, res) => {
+        anotherUserToken = res.body.data.token;
+        res.body.status.should.be.equal(201);
+        expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
 
   it('should create an announcement', (done) => {
     const user = mockData[6];
@@ -40,6 +54,7 @@ describe('User tests', () => {
       .send(user)
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
+        announcementID = res.body.data.id;
         res.body.status.should.be.equal(201);
         expect(res.body.message).to.equal('success');
         done();
@@ -88,6 +103,44 @@ describe('User tests', () => {
       .end((error, res) => {
         res.body.status.should.be.equal(409);
         expect(res.body.error).to.equal('Announcement already exists');
+        done();
+      });
+  });
+
+  it('should update an announcement', (done) => {
+    const user = mockData[7];
+    chai.request(server)
+      .patch(`/api/v1/announcement/${announcementID}`)
+      .send(user)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
+
+  it('should not update an announcement if not found', (done) => {
+    const user = mockData[7];
+    chai.request(server)
+      .patch('/api/v1/announcement/0')
+      .send(user)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(404);
+        expect(res.body.error).to.equal('Announcement not found');
+        done();
+      });
+  });
+  it('should not update others announcements', (done) => {
+    const user = mockData[7];
+    chai.request(server)
+      .patch(`/api/v1/announcement/${announcementID}`)
+      .send(user)
+      .set('Authorization', `Bearer ${anotherUserToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(401);
+        expect(res.body.error).to.equal('Unauthorized access');
         done();
       });
   });
