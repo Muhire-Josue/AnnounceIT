@@ -11,4 +11,5 @@ const router = express.Router();
 router.post('/api/v1/announcement', authentication, validation, duplication, announcementController.create);
 router.patch('/api/v1/announcement/:id', authentication, notFound, authorization, announcementController.update);
 router.get('/api/v1/announcement', authentication, announcementController.all);
+router.get('/api/v1/announcements', authentication, announcementController.findByStatus);
 export default router;

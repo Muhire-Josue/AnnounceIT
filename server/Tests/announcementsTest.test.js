@@ -9,6 +9,7 @@ chai.should();
 let userToken = '';
 let anotherUserToken = '';
 let announcementID;
+let announcementStatus = '';
 const { expect } = chai;
 
 describe('User tests', () => {
@@ -55,6 +56,7 @@ describe('User tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         announcementID = res.body.data.id;
+        announcementStatus = res.body.data.status;
         res.body.status.should.be.equal(201);
         expect(res.body.message).to.equal('success');
         done();
@@ -144,13 +146,34 @@ describe('User tests', () => {
         done();
       });
   });
-  it('should update an announcement', (done) => {
+  it('should get all announcements', (done) => {
     chai.request(server)
       .get('/api/v1/announcement/')
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
         expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
+  it('should get all announcements with a specific status', (done) => {
+    chai.request(server)
+      .get(`/api/v1/announcements?status=${announcementStatus}`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
+
+  it('should not get all announcements with invalid status', (done) => {
+    chai.request(server)
+      .get('/api/v1/announcements?status=abc')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(400);
+        expect(res.body.error).to.equal('Invalid Status');
         done();
       });
   });
