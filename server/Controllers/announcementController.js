@@ -9,24 +9,25 @@ import findAnnouncementByStatus from '../Helpers/findByStatus';
 import findById from '../Helpers/findById';
 import validStatus from '../Helpers/validateStatus';
 import deleteAnnouncement from '../Helpers/delete';
+import changeStatus from '../Helpers/changeStatus';
 
 class AnnouncementController {
   static create(req, res) {
     const announcement = req.body;
     const UserId = parseInt(req.user.id);
     createAnnouncement(announcement, UserId);
-    successResponse(res, 201, 'success', announcement);
+    return successResponse(res, 201, 'success', announcement);
   }
 
   static update(req, res) {
     const updatedAnnouncement = updateAnnouncement(req.params.id, req.body);
-    successResponse(res, 200, 'success', updatedAnnouncement);
+    return successResponse(res, 200, 'success', updatedAnnouncement);
   }
 
   static all(req, res) {
     const owner = parseInt(req.user.id);
     const announcements = findAllAnnouncements(owner);
-    successResponse(res, 200, 'success', announcements);
+    return successResponse(res, 200, 'success', announcements);
   }
 
   static findByStatus(req, res) {
@@ -49,7 +50,14 @@ class AnnouncementController {
   static delete(req, res) {
     const id = parseInt(req.params.id);
     deleteAnnouncement(id);
-    deleteResponse(res, 200, 'success');
+    return deleteResponse(res, 200, 'success');
+  }
+
+  static changeStatus(req, res) {
+    const id = parseInt(req.params.id);
+    const theStatus = req.query.status;
+    const announcement = changeStatus(id, theStatus);
+    return successResponse(res, 200, 'success', announcement);
   }
 }
 export default AnnouncementController;
