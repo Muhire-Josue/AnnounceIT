@@ -1,12 +1,14 @@
 /* eslint-disable radix */
 import createAnnouncement from '../Helpers/createAnnouncement';
 import successResponse from '../Helpers/successResponse';
+import failureResponse from '../Helpers/failureResponse';
+import deleteResponse from '../Helpers/deleteResponse';
 import updateAnnouncement from '../Helpers/updateAnnouncement';
 import findAllAnnouncements from '../Helpers/findAllAnnouncements';
 import findAnnouncementByStatus from '../Helpers/findByStatus';
 import findById from '../Helpers/findById';
 import validStatus from '../Helpers/validateStatus';
-import failureResponse from '../Helpers/failureResponse';
+import deleteAnnouncement from '../Helpers/delete';
 
 class AnnouncementController {
   static create(req, res) {
@@ -42,6 +44,12 @@ class AnnouncementController {
     const id = parseInt(req.params.id);
     const announcement = findById(id);
     return successResponse(res, 200, 'success', announcement);
+  }
+
+  static delete(req, res) {
+    const id = parseInt(req.params.id);
+    deleteAnnouncement(id);
+    deleteResponse(res, 200, 'success');
   }
 }
 export default AnnouncementController;

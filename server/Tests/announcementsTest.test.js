@@ -178,9 +178,20 @@ describe('User tests', () => {
       });
   });
 
-  it('should an announcement', (done) => {
+  it('should get an announcement', (done) => {
     chai.request(server)
       .get(`/api/v1/announcement/${announcementID}`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
+
+  it('should delete an announcement', (done) => {
+    chai.request(server)
+      .delete(`/api/v1/announcement/${announcementID}`)
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
