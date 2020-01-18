@@ -199,6 +199,17 @@ describe('User tests', () => {
       });
   });
 
+  it('should view all announcements', (done) => {
+    chai.request(server)
+      .get('/api/v1/announcemente')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
+
   it('should not delete an announcement if not an admin', (done) => {
     chai.request(server)
       .delete(`/api/v1/announcement/${announcementID}`)

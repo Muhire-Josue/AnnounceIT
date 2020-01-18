@@ -10,6 +10,7 @@ import findById from '../Helpers/findById';
 import validStatus from '../Helpers/validateStatus';
 import deleteAnnouncement from '../Helpers/delete';
 import changeStatus from '../Helpers/changeStatus';
+import Announcement from '../Models/announcement';
 
 class AnnouncementController {
   static create(req, res) {
@@ -58,6 +59,10 @@ class AnnouncementController {
     const theStatus = req.query.status;
     const announcement = changeStatus(id, theStatus);
     return successResponse(res, 200, 'success', announcement);
+  }
+
+  static allAnnouncements(req, res) {
+    return successResponse(res, 200, 'success', Announcement);
   }
 }
 export default AnnouncementController;
