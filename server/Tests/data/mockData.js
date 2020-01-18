@@ -31,7 +31,7 @@ const mockData = [
     phoneNumer: '0785505790',
     password: 'user4',
     address: 'kigali',
-    is_admin: false,
+    is_admin: true,
   },
   {
     text: 'Hello world',

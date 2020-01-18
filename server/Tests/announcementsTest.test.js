@@ -188,6 +188,27 @@ describe('User tests', () => {
         done();
       });
   });
+  it('should change the status an announcement', (done) => {
+    chai.request(server)
+      .patch(`/api/v1/announcements/${announcementID}?status=active`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
+
+  it('should not delete an announcement if not an admin', (done) => {
+    chai.request(server)
+      .delete(`/api/v1/announcement/${announcementID}`)
+      .set('Authorization', `Bearer ${anotherUserToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(403);
+        expect(res.body.error).to.equal('Forbidden operation');
+        done();
+      });
+  });
 
   it('should delete an announcement', (done) => {
     chai.request(server)
