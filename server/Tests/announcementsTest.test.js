@@ -144,4 +144,14 @@ describe('User tests', () => {
         done();
       });
   });
+  it('should update an announcement', (done) => {
+    chai.request(server)
+      .get('/api/v1/announcement/')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
 });
