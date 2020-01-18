@@ -12,4 +12,5 @@ router.post('/api/v1/announcement', authentication, validation, duplication, ann
 router.patch('/api/v1/announcement/:id', authentication, notFound, authorization, announcementController.update);
 router.get('/api/v1/announcement', authentication, announcementController.all);
 router.get('/api/v1/announcements', authentication, announcementController.findByStatus);
+router.get('/api/v1/announcement/:id', authentication, notFound, authorization, announcementController.getAnnouncement);
 export default router;
