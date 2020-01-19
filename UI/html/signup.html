@@ -5,36 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnnounceIT | Login</title>
+    <title>AnnounceIT | SignUp</title>
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
     <header class="main-header">
-        <a href="index.html" class="main-header__brand">
+        <a href="../index.html" class="main-header__brand">
             <h3>AnnounceIT</h3>
         </a>
         <nav class="main-nav">
             <ul class="main-nav__items">
                 <li class="main-nav__item">
-                    <a href="signup.html">SignUp</a>
+                    <a href="login.html">Login</a>
                 </li>
 
             </ul>
         </nav>
     </header>
     <main class="signup-page">
-        <h1 class="signup-title">Login</h1>
+        <h1 class="signup-title">Create an account</h1>
         <form action="#" class="signup-form">
 
+            <label for="first">First Name</label>
+            <input type="text" id="first" required>
+            <label for="first">Last Name</label>
+            <input type="text" id="last" required>
             <label for="email">Email</label>
             <input type="email" id="email" required>
             <label for="password">Password</label>
             <input type="password" id="password" required>
-            <a href="allAds.html" class="form-btn">Login</a>
-            <p class="account-links">Or create an account <span id="Change-here"><a href="signup.html">HERE</a></span></p>
+            <a href="allAds.html" class="form-btn">SignUp</a>
+            <p class="account-links">Already have an account? <span id="Change-here"><a href="login.html">Login</a></span></p>
         </form>
     </main>
     <footer class="main-footer">
@@ -49,7 +53,7 @@
             </ul>
         </nav>
     </footer>
-    <script src="js/shared.js"></script>
+    <script src="../js/shared.js"></script>
 </body>
 
 </html>
