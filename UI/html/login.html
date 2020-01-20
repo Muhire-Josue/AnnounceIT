@@ -27,13 +27,14 @@
     </header>
     <main class="signup-page">
         <h1 class="signup-title">Login</h1>
-        <form method="POST" class="signup-form">
-
+        <form method="POST" class="signup-form" onsubmit="return false;">
             <label for="email">Email</label>
-            <input id="email" type="email" id="email" required>
+            <input name="email" onkeyup="validateInputs()" type="email" required>
             <label for="password">Password</label>
-            <input id="password" type="password" id="password" required>
-            <button class="form-btn">Login</button>
+            <input name="password" onkeyup="validateInputs()" type="password" required>
+            <button class="form-btn disable" onclick="submitForm()">
+                Login
+            </button>
             <p class="account-links">Or create an account <span id="Change-here"><a href="signup.html">HERE</a></span></p>
         </form>
     </main>
