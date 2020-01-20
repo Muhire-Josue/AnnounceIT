@@ -84,7 +84,7 @@ main {
 }
 
 .main-footer {
-    background: black;
+    background: #3B3B3B;
     padding: 2rem;
     margin-top: 3rem;
 }
@@ -131,7 +131,7 @@ main {
 
 .signup-form label {
     font-weight: bold;
-    color: gray;
+    color: #13ddc9;
     display: block;
     margin-top: 1rem;
     width: 100%;
@@ -142,14 +142,15 @@ main {
     margin-top: 1rem;
     width: 100%;
     height: 5vh;
-    border: 2px solid #c9c7c7;
+    border: 1px solid #c9c7c7;
+    border-radius: 5px;
 }
 
 .signup-form input:focus {
     outline: none;
     background: #e7e2e2;
-    border-color: gray;
-    border-radius: 5px;
+    border-color: #EFF9F9;
+    
 }
 
 
@@ -213,8 +214,8 @@ main {
     width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
-    width: 650px;
-    height: 400px;
+    width: 350px;
+    height: 200px;
     padding: 4px;
     padding-left: 30px;
     border-radius: 5px;
@@ -225,6 +226,7 @@ main {
 
 .new-announce a {
     margin-top: -0.1rem;
+    margin-bottom: 18%;
 }
 
 #boxes {
@@ -272,15 +274,17 @@ main {
 }
 
 #boxes .box p {
-    color: #646464;
+    color: #3B3B3B;
     text-align: left;
     font-style: italic;
+    font-family: "Montserrat", sans-serif;
 }
 
 #boxes .boxz p {
-    color: #646464;
+    color: #3B3B3B;
     text-align: left;
     font-style: italic;
+    font-family: "Montserrat", sans-serif;
 }
 
 .button a {

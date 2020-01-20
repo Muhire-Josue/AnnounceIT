@@ -2,6 +2,23 @@ let ALERT_TITLE = "Notification!!!";
 let ALERT_BUTTON_TEXT = "CONFIRM";
 let ALERT_BUTTON_TEXT_2 = "CANCEL";
 
+const redirect = document.querySelector('form-btn');
+redirect.addEventListener('onClick', validation);
+
+function redirectPage(e) {
+    e.preventDefault();
+    window.location("allAds.html");
+}
+
+function validation(e) {
+    e.preventDefault();
+    let action = document.querySelector(".signup-form");
+    action.setAttribute("action", "./../html/allAds.html");
+    
+}
+
+
+
 if (document.getElementById) {
     window.alert = function(txt) {
         createCustomAlert(txt);
@@ -69,4 +86,4 @@ window.addEventListener('resize', function() {
 })
 window.addEventListener('scroll', function() {
     setSectionHeight();
-})
+});
