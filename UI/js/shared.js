@@ -3,7 +3,10 @@ function validateInputs() {
     var password = document.querySelector('.signup-form [name="password"]').value;
     if (email && password.length >= 3) {
         document.querySelector('.signup-form .form-btn').classList.remove('disable');
-       return true;
+        if(email === 'user1@example.com' && password === 'root') {
+            redirect();
+        }
+        return true;
    }
    document.querySelector('.signup-form .form-btn').classList.add('disable');
    return false;
@@ -39,9 +42,14 @@ function submitForm() {
     return false;
 }
 
-let ALERT_TITLE = "Notification!!!";
-let ALERT_BUTTON_TEXT = "CONFIRM";
-let ALERT_BUTTON_TEXT_2 = "CANCEL";
+function redirect() {
+        window.location.replace('/UI/html/delete.html');
+        return false;
+}
+
+let ALERT_TITLE = "Notification Alert";
+let ALERT_BUTTON_TEXT = "CANCEL";
+let ALERT_BUTTON_TEXT_2 = "CONFIRM";
 
 if (document.getElementById) {
     window.alert = function (txt) {
