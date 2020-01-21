@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: "Montserrat", sans-serif;
+    font-family: sans-serif;
     margin: 0;
     height: 100%;
     background: #ebedf0;
@@ -39,9 +39,10 @@ main {
     color: whitesmoke;
     text-decoration: none;
     font-weight: bold;
-    height: 2.5rem;
+    height: 3.5rem;
     display: inline-block;
     vertical-align: middle;
+    padding-top: 38px;
 }
 
 .main-nav {
