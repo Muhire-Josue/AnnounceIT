@@ -27,17 +27,16 @@
     </header>
     <main class="signup-page">
         <h1 class="signup-title">Create an account</h1>
-        <form action="#" class="signup-form">
-
+        <form action="#" class="signup-form" onsubmit="return false;">
             <label for="first">First Name</label>
-            <input type="text" id="first" required>
+            <input name="firstname" onkeyup="validateSignUp()" type="text" id="first" required>
             <label for="first">Last Name</label>
-            <input type="text" id="last" required>
+            <input name="lastname" onkeyup="validateSignUp()" type="text" id="last" required>
             <label for="email">Email</label>
-            <input type="email" id="email" required>
+            <input name="email" onkeyup="validateSignUp()" type="email" required>
             <label for="password">Password</label>
-            <input type="password" id="password" required>
-            <a href="allAds.html" class="form-btn">SignUp</a>
+            <input name="password" onkeyup="validateSignUp()" type="password" required>
+            <button class="form-btn disable" onclick="submitForm()">SignUp</button>
             <p class="account-links">Already have an account? <span id="Change-here"><a href="login.html">Login</a></span></p>
         </form>
     </main>
