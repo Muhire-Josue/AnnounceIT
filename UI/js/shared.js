@@ -1,15 +1,3 @@
-let ALERT_TITLE = "Notification!!!";
-let ALERT_BUTTON_TEXT = "CONFIRM";
-let ALERT_BUTTON_TEXT_2 = "CANCEL";
-
-const redirect = document.querySelector('form-btn');
-redirect.addEventListener('onClick', validation);
-
-function redirectPage(e) {
-    e.preventDefault();
-    window.location("allAds.html");
-}
-
 function validateInputs() {
     var email = document.querySelector('.signup-form [name="email"]').value;
     var password = document.querySelector('.signup-form [name="password"]').value;
@@ -51,10 +39,12 @@ function submitForm() {
     return false;
 }
 
-
+let ALERT_TITLE = "Notification!!!";
+let ALERT_BUTTON_TEXT = "CONFIRM";
+let ALERT_BUTTON_TEXT_2 = "CANCEL";
 
 if (document.getElementById) {
-    window.alert = function(txt) {
+    window.alert = function (txt) {
         createCustomAlert(txt);
     }
 }
@@ -85,13 +75,13 @@ function createCustomAlert(txt) {
     btn.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
     btn.href = "#";
     btn.focus();
-    btn.onclick = function() { removeCustomAlert(); return false; }
+    btn.onclick = function () { removeCustomAlert(); return false; }
     btn = alertObj.appendChild(d.createElement("a"));
     btn.id = "cancelBtn";
     btn.appendChild(d.createTextNode(ALERT_BUTTON_TEXT_2));
     btn.href = "#";
     btn.focus();
-    btn.onclick = function() { removeCustomAlert(); return false; }
+    btn.onclick = function () { removeCustomAlert(); return false; }
 
     alertObj.style.display = "block";
 
@@ -100,7 +90,6 @@ function createCustomAlert(txt) {
 function removeCustomAlert() {
     document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
 }
-
 function ful() {
     alert('Alert this pages');
 }
@@ -120,4 +109,4 @@ window.addEventListener('resize', function() {
 })
 window.addEventListener('scroll', function() {
     setSectionHeight();
-});
+})
