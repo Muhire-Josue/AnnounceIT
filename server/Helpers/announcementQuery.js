@@ -2,7 +2,7 @@
 import Announcement from '../Models/announcement';
 // import user from '../Models/user';
 
-class Query {
+class AnnouncementQuery {
   static createUser(announcement, userID) {
     const today = new Date();
     const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
@@ -31,8 +31,28 @@ class Query {
   }
 
   static findAll(id) {
-    const announcements = Announcement.filter(a => a.owner === owner);
+    const announcements = Announcement.filter(a => a.owner === id);
     return announcements;
   }
+
+  static findByStatus(status, owner) {
+    const announcements = Announcement.filter(a => a.owner === owner);
+    return announcements.filter(a => a.status === status);
+  }
+
+  static findById(id) {
+    return Announcement.find(a => a.id === id);
+  }
+
+  static deleteAnnouncement(id) {
+    const announcement = Announcement.find(a => a.id === id);
+    const announcementIndex = Announcement.indexOf(announcement);
+    return Announcement.splice(announcementIndex, 1);
+  }
+
+  static findByText(text) {
+    const announcement = Announcement.find(t => t.text === text);
+    return announcement;
+  }
 }
-export default Query;
+export default AnnouncementQuery;

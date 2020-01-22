@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import userSchema from '../Validations/userValidation';
-import failureResponse from '../Helpers/failureResponse';
+import response from '../Helpers/response';
 
 const validate = (req, res, next) => {
   const user = req.body;
@@ -11,7 +11,7 @@ const validate = (req, res, next) => {
     firstname, lastname, email, password, phoneNumer, address, is_admin,
   });
   if (validateUser.error) {
-    return failureResponse(res, 400, validateUser.error.details[0].message);
+    return response.failureResponse(res, 400, validateUser.error.details[0].message);
   }
   return next();
 };

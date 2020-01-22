@@ -1,12 +1,12 @@
 /* eslint-disable radix */
-import findById from '../Helpers/findById';
-import failureResponse from '../Helpers/failureResponse';
+import query from '../Helpers/announcementQuery';
+import response from '../Helpers/response';
 
 const authorization = (req, res, next) => {
-  const announcement = findById(parseInt(req.params.id));
+  const announcement = query.findById(parseInt(req.params.id));
   const currentUser = req.user;
   if (announcement.owner !== currentUser.id) {
-    return failureResponse(res, 401, 'Unauthorized access');
+    return response.failureResponse(res, 401, 'Unauthorized access');
   }
   return next();
 };

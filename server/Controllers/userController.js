@@ -1,10 +1,9 @@
 /* eslint-disable max-len */
 import hash from 'bcrypt-nodejs';
-import createUser from '../Helpers/createUser';
 import userTokenGenerator from '../Helpers/userTokenGenerator';
-import successResponse from '../Helpers/successResponse';
-import findByEmail from '../Helpers/findByEmail';
 import User from '../Models/user';
+import query from '../Helpers/userQuery';
+import response from '../Helpers/response';
 
 class UserController {
   static welcomeToAPI(req, res) {
@@ -15,7 +14,7 @@ class UserController {
     const user = req.body;
     user.password = hash.hashSync(user.password);
     user.id = User.length + 1;
-    createUser(user);
+    query.createUser(user);
     const tokenData = {
       id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
     };
@@ -23,11 +22,11 @@ class UserController {
     const data = {
       token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumer, address: user.address, is_admin: user.is_admin,
     };
-    successResponse(res, 201, 'success', data);
+    response.successResponse(res, 201, 'success', data);
   }
 
   static login(req, res) {
-    const user = findByEmail(req.body.email);
+    const user = query.findByEmail(req.body.email);
     const tokenData = {
       id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
     };
@@ -35,7 +34,7 @@ class UserController {
     const data = {
       token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumer, address: user.address, is_admin: user.is_admin,
     };
-    successResponse(res, 200, 'success', data);
+    response.successResponse(res, 200, 'success', data);
   }
 }
 export default UserController;
