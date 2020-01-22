@@ -199,7 +199,7 @@ body {
 
 #boxes .box img {
     width: 170px;
-    height: 150px;
+    height: 170px;
     border-radius: 50%;
     margin-left: 22%;
 }
@@ -310,21 +310,32 @@ aside#sidebar {
     #main-nav {
         float: left;
         width: 100%;
-        padding-bottom: 8px;
+        padding-bottom: 10px;
     }
     #main-nav-items {
-        margin-left: 8rem;
+        margin-left: 5rem;
     }
     .main-nav-item {
         text-align: left;
         margin-top: -0.2rem;
     }
+    #branding h1{
+        margin-left: -5rem;
+    }
     #front-message {
         margin: 0;
-        margin-left: 30%;
         margin-bottom: -1rem;
         top: 20%;
-        font-size: 150%
+        font-size: 150%;
+        margin-left: 3rem;
+
+    }
+    #main-section p{
+        margin-left: 1rem;
+        padding-left: 2px;
+        padding-right: 2px;
+        text-align: center;
+        width: auto;
 
     }
     #main-section {
@@ -335,20 +346,21 @@ aside#sidebar {
     #section p {
         font-size: 12px;
         margin: 0;
-        padding-left: 15rem;
+        padding-left: 10rem;
     }
     #get-started-btn {
-        margin-left: 40%;
+        margin-left: 20%;
     }
     .container img {
-        margin-top: -300%;
-        margin-left: 5%;
-        height: 45vh;
-        width: 200%;
+        margin-top: -350%;
+        margin-left: 3rem;
+        height: 30vh;
+        width: 120%;
     }
     #search-form {
-        width: 23rem;
+        width: 17.2rem;
         height: 20vh;
+        margin-left: 40px;
     }
 
     #search input[type="text"]{
@@ -363,42 +375,56 @@ aside#sidebar {
     }
     #satisfied-customers {
         height: 200vh;
+        width: 247%;
+        margin-left: -50%;
     }
     #statisfied-customers-title {
         font-size: 1.5rem;
-        margin-bottom: -40rem;
+        margin-left: -20px;   
+        margin-bottom: 40px;
     }
 
+    .push {
+        margin-bottom: -12rem;
+    }
  
     #boxes .box {
         float: left;
         width: 100%;
         margin-bottom: 20.5rem;
         margin-top: -20rem;
+        margin-left: -13%;
     }
 
     #product {
-        margin-top: 45rem;
+        margin-top: 328%;
+        margin-left: -73px;
     }
 
     #product a{
-        margin-top: -28%;
-        margin-left: 40%;
+        margin-top: -48%;
+        margin-left: 30%;
+        padding: 18px
     }
     #product-title {
         color: black;
-        margin-top: -20rem;
+        margin-left: -25%;
     }
 
     #feature {
-        margin-left: 3%;
+        margin-left: 28%;
     }
     #resources {
-        margin-left: 38%;
-        margin-top: -10.8rem;
+        margin-left: 28%;
+        margin-top: -0.3rem;
     }
     #products {
-        margin-top: -10.8rem;
-        margin-left: 75%;
+        margin-top: -1rem;
+        margin-left: 30%;
+        margin-bottom: 1px;
+    }
+
+    #footer {
+        height: auto;
     }
 }
