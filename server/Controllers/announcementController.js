@@ -1,27 +1,26 @@
 /* eslint-disable radix */
-import createAnnouncement from '../Helpers/createAnnouncement';
 import successResponse from '../Helpers/successResponse';
 import failureResponse from '../Helpers/failureResponse';
 import deleteResponse from '../Helpers/deleteResponse';
-import updateAnnouncement from '../Helpers/updateAnnouncement';
+// import updateAnnouncement from '../Helpers/updateAnnouncement';
 import findAllAnnouncements from '../Helpers/findAllAnnouncements';
 import findAnnouncementByStatus from '../Helpers/findByStatus';
 import findById from '../Helpers/findById';
 import validStatus from '../Helpers/validateStatus';
 import deleteAnnouncement from '../Helpers/delete';
-import changeStatus from '../Helpers/changeStatus';
 import Announcement from '../Models/announcement';
+import query from '../Helpers/query';
 
 class AnnouncementController {
   static create(req, res) {
     const announcement = req.body;
     const UserId = parseInt(req.user.id);
-    createAnnouncement(announcement, UserId);
+    query.createUser(announcement, UserId);
     return successResponse(res, 201, 'success', announcement);
   }
 
   static update(req, res) {
-    const updatedAnnouncement = updateAnnouncement(req.params.id, req.body);
+    const updatedAnnouncement = query.updateAnnouncement(req.params.id, req.body);
     return successResponse(res, 200, 'success', updatedAnnouncement);
   }
 
@@ -57,7 +56,7 @@ class AnnouncementController {
   static changeStatus(req, res) {
     const id = parseInt(req.params.id);
     const theStatus = req.query.status;
-    const announcement = changeStatus(id, theStatus);
+    const announcement = query.changeStatus(id, theStatus);
     return successResponse(res, 200, 'success', announcement);
   }
 
