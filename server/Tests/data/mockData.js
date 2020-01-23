@@ -38,8 +38,8 @@ const mockData = [
     end_date: '2020-03-19',
   },
   {
-    text: 'Hello world',
-    end_date: '12-12-1998',
+    text: 'Hello world, I am John Doe',
+    end_date: '2020-03-19-0',
   },
   {
     text: 'Hello world, Im John Doe',

@@ -110,7 +110,7 @@ describe('User tests', () => {
   });
 
   it('should update an announcement', (done) => {
-    const user = mockData[7];
+    const user = mockData[6];
     chai.request(server)
       .patch(`/api/v1/announcement/${announcementID}`)
       .send(user)
@@ -123,7 +123,7 @@ describe('User tests', () => {
   });
 
   it('should not update an announcement if not found', (done) => {
-    const user = mockData[7];
+    const user = mockData[6];
     chai.request(server)
       .patch('/api/v1/announcement/0')
       .send(user)
@@ -135,7 +135,7 @@ describe('User tests', () => {
       });
   });
   it('should not update others announcements', (done) => {
-    const user = mockData[7];
+    const user = mockData[6];
     chai.request(server)
       .patch(`/api/v1/announcement/${announcementID}`)
       .send(user)
@@ -188,6 +188,28 @@ describe('User tests', () => {
         done();
       });
   });
+
+  it('should work provided invalid routes', (done) => {
+    chai.request(server)
+      .put(`/api/v0/announcement/${announcementID}`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(400);
+        expect(res.body.error).to.equal('Incorrect Route');
+        done();
+      });
+  });
+
+  it('should not get an announcement provided invalid id', (done) => {
+    chai.request(server)
+      .get('/api/v1/announcement/id')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(400);
+        expect(res.body.error).to.equal('Please provide a valid id');
+        done();
+      });
+  });
   it('should change the status an announcement', (done) => {
     chai.request(server)
       .patch(`/api/v1/announcements/${announcementID}?status=active`)
@@ -195,6 +217,17 @@ describe('User tests', () => {
       .end((error, res) => {
         res.body.status.should.be.equal(200);
         expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
+
+  it('should not change the status an announcement provided invalid status', (done) => {
+    chai.request(server)
+      .patch(`/api/v1/announcements/${announcementID}?status=notAStatus`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(400);
+        expect(res.body.error).to.equal('Invalid Status');
         done();
       });
   });

@@ -1,10 +1,10 @@
-import findByEmail from '../Helpers/findByEmail';
-import failureResponse from '../Helpers/failureResponse';
+import query from '../Helpers/userQuery';
+import response from '../Helpers/response';
 
 const userFound = (req, res, next) => {
-  const user = findByEmail(req.body.email);
+  const user = query.findByEmail(req.body.email);
   if (!user) {
-    return failureResponse(res, 404, 'User not found');
+    return response.failureResponse(res, 404, 'User not found');
   }
   return next();
 };

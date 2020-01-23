@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Muhire-Josue/AnnounceIT.svg?branch=develop)](https://travis-ci.org/Muhire-Josue/AnnounceIT)
+[![Coverage Status](https://coveralls.io/repos/github/Muhire-Josue/AnnounceIT/badge.svg?branch=ch-refactor-helper-folder-ds-%23170844806)](https://coveralls.io/github/Muhire-Josue/AnnounceIT?branch=ch-refactor-helper-folder-ds-%23170844806)
 
 # AnnounceIT
 AnnounceIT comes in as a solution to broadcasting agencies which will will allow them to be able to receive and manage announcements. 
@@ -7,6 +8,7 @@ AnnounceIT comes in as a solution to broadcasting agencies which will will allow
 ### Links
 ##### gh-pages:  https://muhire-josue.github.io/AnnounceIT/UI/index.html
 ##### heroku:  https://anounce-it.herokuapp.com/api/v1/
+##### API Documentation:  https://documenter.getpostman.com/view/3997258/SWT8eyKA?version=latest
 
 ### Requirements
 - `Nodejs` - a JavaScript run-time environment that executes JavaScript code outside of a browser

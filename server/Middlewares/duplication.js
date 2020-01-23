@@ -1,10 +1,10 @@
-import findByText from '../Helpers/findByText';
-import failureResponse from '../Helpers/failureResponse';
+import query from '../Helpers/announcementQuery';
+import response from '../Helpers/response';
 
 const duplication = (req, res, next) => {
-  const announcementFound = findByText(req.body.text);
+  const announcementFound = query.findByText(req.body.text);
   if (announcementFound) {
-    return failureResponse(res, 409, 'Announcement already exists');
+    return response.failureResponse(res, 409, 'Announcement already exists');
   }
   return next();
 };
