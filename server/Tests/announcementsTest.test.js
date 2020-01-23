@@ -31,7 +31,7 @@ describe('User tests', () => {
       .end((error, res) => {
         userToken = res.body.data.token;
         res.body.status.should.be.equal(201);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('User created successfully');
         done();
       });
   });
@@ -43,7 +43,7 @@ describe('User tests', () => {
       .end((error, res) => {
         anotherUserToken = res.body.data.token;
         res.body.status.should.be.equal(201);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('User created successfully');
         done();
       });
   });
@@ -58,7 +58,7 @@ describe('User tests', () => {
         announcementID = res.body.data.id;
         announcementStatus = res.body.data.status;
         res.body.status.should.be.equal(201);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('Announcement created successully');
         done();
       });
   });
@@ -117,7 +117,7 @@ describe('User tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('Announcement updated successfully');
         done();
       });
   });
@@ -152,7 +152,7 @@ describe('User tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('All your announcements');
         done();
       });
   });
@@ -162,7 +162,18 @@ describe('User tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('Announcements by status');
+        done();
+      });
+  });
+
+  it('should not get all announcements if no announcement is found with that status', (done) => {
+    chai.request(server)
+      .get('/api/v1/announcements?status=active')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(404);
+        expect(res.body.error).to.equal('Announcement not found');
         done();
       });
   });
@@ -184,7 +195,7 @@ describe('User tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('Annoucement');
         done();
       });
   });
@@ -216,7 +227,7 @@ describe('User tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('Status changed successfully');
         done();
       });
   });
@@ -238,7 +249,7 @@ describe('User tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('All announcements');
         done();
       });
   });
@@ -260,7 +271,7 @@ describe('User tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('Announcement Deleted successfully');
         done();
       });
   });
