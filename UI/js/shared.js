@@ -37,13 +37,13 @@ function validateAds() {
 
 function submitForm() {
     if(validateInputs()) {
-        window.location.replace('/UI/html/allAds.html');
+        window.location.replace('./allAds.html');
     }
     return false;
 }
 
 function redirect() {
-        window.location.replace('/UI/html/delete.html');
+        window.location.replace('./delete.html');
         return false;
 }
 
