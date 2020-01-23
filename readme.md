@@ -8,6 +8,7 @@ AnnounceIT comes in as a solution to broadcasting agencies which will will allow
 ### Links
 ##### gh-pages:  https://muhire-josue.github.io/AnnounceIT/UI/index.html
 ##### heroku:  https://anounce-it.herokuapp.com/api/v1/
+##### API Documentation:  https://documenter.getpostman.com/view/3997258/SWT8eyKA?version=latest
 
 ### Requirements
 - `Nodejs` - a JavaScript run-time environment that executes JavaScript code outside of a browser
