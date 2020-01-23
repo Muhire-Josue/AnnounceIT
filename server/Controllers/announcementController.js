@@ -49,6 +49,10 @@ class AnnouncementController {
   static changeStatus(req, res) {
     const id = parseInt(req.params.id);
     const theStatus = req.query.status;
+    const isValidStatus = validStatus(theStatus);
+    if (!isValidStatus) {
+      return response.failureResponse(res, 400, 'Invalid Status');
+    }
     const announcement = query.changeStatus(id, theStatus);
     return response.successResponse(res, 200, 'success', announcement);
   }

@@ -110,7 +110,7 @@ describe('User tests', () => {
   });
 
   it('should update an announcement', (done) => {
-    const user = mockData[7];
+    const user = mockData[6];
     chai.request(server)
       .patch(`/api/v1/announcement/${announcementID}`)
       .send(user)
@@ -217,6 +217,17 @@ describe('User tests', () => {
       .end((error, res) => {
         res.body.status.should.be.equal(200);
         expect(res.body.message).to.equal('success');
+        done();
+      });
+  });
+
+  it('should not change the status an announcement provided invalid status', (done) => {
+    chai.request(server)
+      .patch(`/api/v1/announcements/${announcementID}?status=notAStatus`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(400);
+        expect(res.body.error).to.equal('Invalid Status');
         done();
       });
   });
