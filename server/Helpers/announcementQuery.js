@@ -3,12 +3,12 @@ import Announcement from '../Models/announcement';
 // import user from '../Models/user';
 
 class AnnouncementQuery {
-  static createUser(announcement, userID) {
+  static createUser(announcement, owner) {
     const today = new Date();
     const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
     const newAnnouncement = announcement;
     newAnnouncement.id = Announcement.length + 1;
-    newAnnouncement.owner = userID;
+    newAnnouncement.owner = owner;
     newAnnouncement.status = 'pending';
     newAnnouncement.text = announcement.text;
     newAnnouncement.start_date = date;

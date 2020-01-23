@@ -20,9 +20,9 @@ class UserController {
     };
     const token = userTokenGenerator(tokenData);
     const data = {
-      token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumer, address: user.address, is_admin: user.is_admin,
+      token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumber, address: user.address, is_admin: user.is_admin,
     };
-    response.successResponse(res, 201, 'success', data);
+    response.successResponse(res, 201, 'User created successfully', data);
   }
 
   static login(req, res) {
@@ -32,9 +32,9 @@ class UserController {
     };
     const token = userTokenGenerator(tokenData);
     const data = {
-      token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumer, address: user.address, is_admin: user.is_admin,
+      token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumber, address: user.address, is_admin: user.is_admin,
     };
-    response.successResponse(res, 200, 'success', data);
+    response.successResponse(res, 200, 'Logged in successfully', data);
   }
 }
 export default UserController;

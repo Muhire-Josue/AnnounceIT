@@ -26,7 +26,7 @@ describe('User tests', () => {
       .send(user)
       .end((error, res) => {
         res.body.status.should.be.equal(201);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('User created successfully');
         done();
       });
   });
@@ -61,7 +61,7 @@ describe('User tests', () => {
       .send(user)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('success');
+        expect(res.body.message).to.equal('Logged in successfully');
         done();
       });
   });
