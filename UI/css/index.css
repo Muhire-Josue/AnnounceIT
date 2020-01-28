@@ -1,27 +1,33 @@
-* {
-    box-sizing: border-box;
+.flex {
+    display: flex;
 }
 
-body {
-    font-family: "Montserrat", sans-serif;
-    margin: 0;
-    height: 100%;
-    width: 90%;
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
 }
 
 #main-nav {
-    background: url('/img/logo.svg') no-repeat border-box;
-    height: 10%;
-    margin-top: 2rem;
-    margin-left: 8rem;
-    top: 0;
-    left: 0;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 13%;
 }
 
-#main-nav-items {
-    margin-left: 58rem;
-    margin-top: -2.5rem;
+#branding h1 {
+    color: #2acfcf;
+    font-weight: bold;
 }
 
 .main-nav-item {
@@ -44,22 +50,16 @@ body {
     color: black;
 }
 
-#accounts {
-    text-align: center;
-    display: inline-block;
-    margin-left: 45%;
+.slogan-container {
+    padding: 0 10%;
 }
 
-.active a {
-    background: #2acfcf;
-    color: white;
-    border-radius: 15px;
-    padding: 0.6rem 1rem;
+#front-img-bg {
+    text-align: right;
 }
 
-#accounts a {
-    color: gray;
-    font-weight: bold;
+#front-img-bg img {
+    max-width: 80%;
 }
 
 #front-message {
@@ -70,35 +70,20 @@ body {
     margin-left: 10%;
 }
 
-#main-section {
-    margin-left: 16%;
-    margin-top: 5%;
-    padding: 0;
-}
-
-#main-section p {
+.slogan p {
     color: #888585;
     margin-left: 10%;
     font-size: 18px;
 }
 
-#branding h1 {
-    color: #2acfcf;
-    font-weight: bold;
-}
-
-#get-started-btn {
+.get-started-btn {
     background: #2acfcf;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     outline: 0;
     display: inline-block;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left: 10%;
+    padding: 10px 25px;
     border: none;
     text-align: center;
     cursor: pointer;
@@ -106,30 +91,22 @@ body {
     font-size: 105%;
 }
 
-#get-started-btn:hover {
+.get-started-btn:hover {
     border: 0;
     color: gray;
 }
 
-.container {
-    height: 95vh;
-    width: 50%;
-}
-
-.container img {
-    margin-left: 100%;
-    margin-top: -60%;
-    height: auto;
-    width: 100%;
+.main-section {
+    background: #e2e5ee;
 }
 
 #search-form {
     margin-top: 8%;
-    margin-left: 20%;
+    margin-left: 15%;
     background: hsl(257, 27%, 26%) url('/img/bg-boost-desktop.svg') no-repeat;
     border-radius: 5px;
     height: 18vh;
-    width: 55rem;
+    width: 70%;
 }
 
 #search input[type="text"] {
@@ -159,13 +136,6 @@ body {
     display: inline-block;
 }
 
-#satisfied-customers {
-    margin-left: -40%;
-    height: 113vh;
-    width: 266.5%;
-    background: #e2e5ee;
-}
-
 #statisfied-customers-title {
     font-family: sans-serif;
     color: #3a3939;
@@ -175,23 +145,18 @@ body {
 }
 
 #boxes {
-    margin-top: -20%;
-    margin-left: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5%;
 }
 
 #boxes .box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    float: left;
-    text-align: left;
-    width: 30%;
-    padding-right: 0.5%;
-    padding-left: 0.5%;
-    padding-top: 2%;
-    padding-bottom: 1%;
-    margin-right: 18px;
+    align-items: center;
+    margin: 15px;
+    padding: 15px;
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 0 20px #00000026;
     background: white;
@@ -201,7 +166,6 @@ body {
     width: 170px;
     height: 170px;
     border-radius: 50%;
-    margin-left: 22%;
 }
 
 #boxes .box h3 {
@@ -222,209 +186,32 @@ body {
     text-transform: uppercase;
 }
 
-aside#sidebar {
-    float: right;
-    width: 30%;
-    margin-top: 10px;
-}
-
-#product {
-    width: 132.5%;
-    height: 28vh;
-    margin-left: -19%;
-    margin-right: -200%;
-    margin-top: 45%;
-    background: #3b3054 url('/img/bg-boost-desktop.svg') no-repeat;
-}
-
-#product a {
-    margin-top: 6%;
-    margin-left: 48%;
-}
-
-#product-title {
-    text-align: center;
-    margin-top: -16%;
-    color: white;
-    font-family: sans-serif;
-}
-
-#footer {
-    margin-top: -10.5%;
-    background: #232127;
-    width: 111.4%;
-    height: 40vh;
-}
-
-#logo {
-    margin-top: 12%;
-    margin-left: 10%;
-    color: white;
-    font-family: sans-serif;
-    font-size: 1.5rem;
-}
-
-#feature {
-    margin-left: 30%;
-    margin-top: 5rem;
-    padding-top: 3%;
-}
-
-#feature h3 {
-    color: white;
-    margin-bottom: 4%;
-    font-family: sans-serif;
-    font-size: 2rem;
-}
-
-.feature_item {
-    color: white;
-    list-style: none;
-    text-decoration: none;
-    font-family: sans-serif;
-}
-
-#resources {
-    margin-left: 47%;
-    margin-top: -12rem;
-    color: white;
-}
-
-#resources h3 {
-    font-size: 2rem;
-    margin-bottom: 5%;
-}
-
-#products {
-    margin-left: 65%;
-    margin-top: -12rem;
-    color: white;
-}
-
-#products h3 {
-    font-size: 2rem;
-    margin-bottom: 7%;
-}
-
 @media(max-width: 768px) {
     #main-nav {
-        float: left;
-        width: 100%;
-        padding-bottom: 10px;
+        padding: 0;
     }
-    #main-nav-items {
-        margin-left: 5rem;
+    .slogan-container {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
     }
-    .main-nav-item {
-        text-align: left;
-        margin-top: -0.2rem;
+    .slogan {
+        order: 2;
     }
-    #branding h1{
-        margin-left: -5rem;
+    #front-img-bg {
+        order: 1
     }
     #front-message {
-        margin: 0;
-        margin-bottom: -1rem;
-        top: 20%;
-        font-size: 150%;
-        margin-left: 3rem;
-
-    }
-    #main-section p{
-        margin-left: 1rem;
-        padding-left: 2px;
-        padding-right: 2px;
-        text-align: center;
-        width: auto;
-
-    }
-    #main-section {
-        margin: 0;
-        margin-left: 20%;
-        padding-top: 105%;
-    }
-    #section p {
-        font-size: 12px;
-        margin: 0;
-        padding-left: 10rem;
-    }
-    #get-started-btn {
-        margin-left: 20%;
-    }
-    .container img {
-        margin-top: -350%;
-        margin-left: 3rem;
-        height: 30vh;
-        width: 120%;
+        font-size: 30px;
     }
     #search-form {
-        width: 17.2rem;
-        height: 20vh;
-        margin-left: 40px;
-    }
-
-    #search input[type="text"]{
-        margin-left: 11%;
-    }
-
-    #search input[type="submit"] {
-        float: left;
-        margin-top: 3%;
-        margin-left: 10%;
-        width: 80%;
-    }
-    #satisfied-customers {
-        height: 200vh;
-        width: 247%;
-        margin-left: -50%;
-    }
-    #statisfied-customers-title {
-        font-size: 1.5rem;
-        margin-left: -20px;   
-        margin-bottom: 40px;
-    }
-
-    .push {
-        margin-bottom: -12rem;
-    }
- 
-    #boxes .box {
-        float: left;
         width: 100%;
-        margin-bottom: 20.5rem;
-        margin-top: -20rem;
-        margin-left: -13%;
+        margin: 0;
     }
-
-    #product {
-        margin-top: 328%;
-        margin-left: -73px;
-    }
-
-    #product a{
-        margin-top: -48%;
-        margin-left: 30%;
-        padding: 18px
-    }
-    #product-title {
-        color: black;
-        margin-left: -25%;
-    }
-
-    #feature {
-        margin-left: 28%;
-    }
-    #resources {
-        margin-left: 28%;
-        margin-top: -0.3rem;
-    }
-    #products {
-        margin-top: -1rem;
-        margin-left: 30%;
-        margin-bottom: 1px;
-    }
-
-    #footer {
-        height: auto;
+    #boxes {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 5%;
     }
 }
