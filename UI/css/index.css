@@ -183,7 +183,7 @@ body {
 
 #boxes .box p {
     color: #575353;
-    text-align: left;
+    text-align: center;
     font-size: 16px;
 }
 
@@ -285,6 +285,9 @@ body {
         width: 100%;
         margin: 0;
     }
+    #search input[type="text"] {
+        padding: auto;
+    }
     #boxes {
         display: flex;
         flex-direction: column;
@@ -298,5 +301,7 @@ body {
     }
     #search input[type="submit"] {
         width: auto;
+        margin: 1rem;
+        padding: auto;
     }
 }

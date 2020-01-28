@@ -35,9 +35,10 @@ main {
 }
 
 .main-nav-item {
+    display: flex;
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 0.5rem;
     list-style: none;
     display: inline-block;
 }
@@ -48,7 +49,6 @@ main {
     font-weight: bold;
     display: inline-block;
     vertical-align: middle;
-    padding: 0 2%;
 }
 
 #branding h1 {
