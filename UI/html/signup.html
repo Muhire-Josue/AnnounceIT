@@ -12,34 +12,34 @@
 </head>
 
 <body>
-    <header class="main-header">
-        <a href="../index.html" class="main-header__brand">
-            <h3>AnnounceIT</h3>
-        </a>
-        <nav class="main-nav">
-            <ul class="main-nav__items">
-                <li class="main-nav__item">
-                    <a href="login.html">Login</a>
-                </li>
-
-            </ul>
-        </nav>
-    </header>
-    <main class="signup-page">
-        <h1 class="signup-title">Create an account</h1>
-        <form action="#" class="signup-form" onsubmit="return false;">
-            <label for="first">First Name</label>
-            <input name="firstname" onkeyup="validateSignUp()" type="text" id="first" required>
-            <label for="first">Last Name</label>
-            <input name="lastname" onkeyup="validateSignUp()" type="text" id="last" required>
-            <label for="email">Email</label>
-            <input name="email" onkeyup="validateSignUp()" type="email" required>
-            <label for="password">Password</label>
-            <input name="password" onkeyup="validateSignUp()" type="password" required>
-            <button class="form-btn disable" onclick="submitForm()">SignUp</button>
-            <p class="account-links">Already have an account? <span id="Change-here"><a href="login.html">Login</a></span></p>
-        </form>
-    </main>
+    <nav id="main-nav">
+        <div id="branding">
+            <h1>AnnounceIT</h1>
+        </div>
+        <ul id="main-nav-items">
+            <li class="main-nav-item">
+                <a href="login.html"> Login </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="form-container">
+        <main class="signup-page">
+            <h1 class="signup-title">Create an account</h1>
+            <form action="#" class="signup-form" onsubmit="return false;">
+                <label for="first">First Name</label>
+                <input name="firstname" onkeyup="validateSignUp()" type="text" id="first" required>
+                <label for="first">Last Name</label>
+                <input name="lastname" onkeyup="validateSignUp()" type="text" id="last" required>
+                <label for="email">Email</label>
+                <input name="email" onkeyup="validateSignUp()" type="email" required>
+                <label for="password">Password</label>
+                <input name="password" onkeyup="validateSignUp()" type="password" required>
+                <button class="form-btn disable" onclick="submitForm()">SignUp</button>
+                <p class="account-links">Already have an account? <span id="Change-here"><a
+                            href="login.html">Login</a></span></p>
+            </form>
+        </main>
+    </div>
     <footer class="main-footer">
         <nav>
             <ul class="main-footer__links">
