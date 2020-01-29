@@ -7,7 +7,7 @@ import userFound from '../Middlewares/userFound';
 import incorrectPassword from '../Middlewares/incorrectPassword';
 
 const router = express.Router();
-router.get('/api/v2/', userController.welcomeToAPI);
-router.post('/api/v2/auth/signup', userValidation, userDuplication, userController.signUp);
+router.get('/api/v1/', userController.welcomeToAPI);
+router.post('/api/v1/auth/signup', userValidation, userDuplication, userController.signUp);
 router.post('/api/v1/auth/signin', userFound, incorrectPassword, userController.login);
 export default router;
