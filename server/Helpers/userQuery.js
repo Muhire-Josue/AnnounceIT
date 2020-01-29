@@ -1,6 +1,5 @@
 import hash from 'bcrypt-nodejs';
 import db from '../Models/index';
-import User from '../Models/user';
 
 class UserQuery {
   static async createUser(data) {
@@ -18,13 +17,9 @@ class UserQuery {
     return rows[0];
   }
 
-  static async getByEmail(email) {
+  static async findByEmail(email) {
     const { rows } = await db.query('SELECT * FROM users WHERE email=$1', [email]);
     return rows[0];
-  }
-
-  static findByEmail(email) {
-    return User.find(u => u.email === email);
   }
 }
 export default UserQuery;
