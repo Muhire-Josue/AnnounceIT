@@ -1,15 +1,15 @@
 const mockData = [
   {
-    firstname: 'John',
-    lastname: 'Doe',
+    firstName: 'John',
+    lastName: 'Doe',
     email: 'user1@andela.com',
     phoneNumber: '0785505790',
     password: 'userAndela4',
     address: 'kigali',
-    is_admin: false,
+    isAdmin: false,
   },
   {
-    firstname: 'John',
+    firstName: 'John',
   },
   {
 
@@ -25,34 +25,34 @@ const mockData = [
     password: 'userAndela2',
   },
   {
-    firstname: 'John',
-    lastname: 'Doe',
+    firstName: 'John',
+    lastName: 'Doe',
     email: 'user2@andela.com',
     phoneNumber: '0785505790',
     password: 'userAndela4',
     address: 'kigali',
-    is_admin: true,
+    isAdmin: true,
   },
   {
     text: 'Hello world',
-    end_date: '2020-03-19',
+    endDate: '2020-03-19',
   },
   {
     text: 'Hello world, I am John Doe',
-    end_date: '2020-03-19-0',
+    endDate: '2020-03-19-0',
   },
   {
     text: 'Hello world, Im John Doe',
-    end_date: '2020-03-20',
+    endDate: '2020-03-20',
   },
   {
-    firstname: 'John',
-    lastname: 'Doe',
+    firstName: 'John',
+    lastName: 'Doe',
     email: 'user3@andela.com',
     phoneNumber: '0785505790',
     password: 'userAndela4',
     address: 'kigali',
-    is_admin: false,
+    isAdmin: false,
   },
 ];
 
