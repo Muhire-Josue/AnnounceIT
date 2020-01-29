@@ -3,13 +3,13 @@ function validateInputs() {
     var password = document.querySelector('.signup-form [name="password"]').value;
     if (email && password.length >= 3) {
         document.querySelector('.signup-form .form-btn').classList.remove('disable');
-        if(email === 'user1@example.com' && password === 'root') {
+        if (email === 'user1@example.com' && password === 'root') {
             redirect();
         }
         return true;
-   }
-   document.querySelector('.signup-form .form-btn').classList.add('disable');
-   return false;
+    }
+    document.querySelector('.signup-form .form-btn').classList.add('disable');
+    return false;
 }
 
 function validateSignUp() {
@@ -19,32 +19,32 @@ function validateSignUp() {
     var password = document.querySelector('.signup-form [name="password"]').value;
     if (email && password.length >= 3 && firstname.length >= 3 && lastname.length >= 3) {
         document.querySelector('.signup-form .form-btn').classList.remove('disable');
-       return true;
-   }
-   document.querySelector('.signup-form .form-btn').classList.add('disable');
-   return false;
+        return true;
+    }
+    document.querySelector('.signup-form .form-btn').classList.add('disable');
+    return false;
 }
 
 function validateAds() {
     var ads = document.querySelector('.signup-form [name="ads"]').value;
     if (ads.length >= 3) {
         document.querySelector('.signup-form .form-btn').classList.remove('disable');
-       return true;
-   }
-   document.querySelector('.signup-form .form-btn').classList.add('disable');
-   return false;
+        return true;
+    }
+    document.querySelector('.signup-form .form-btn').classList.add('disable');
+    return false;
 }
 
 function submitForm() {
-    if(validateInputs()) {
+    if (validateInputs()) {
         window.location.replace('./allAds.html');
     }
     return false;
 }
 
 function redirect() {
-        window.location.replace('./delete.html');
-        return false;
+    window.location.replace('./admin.html');
+    return false;
 }
 
 let ALERT_TITLE = "Notification";
@@ -108,13 +108,13 @@ function setSectionHeight() {
 
 };
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     setSectionHeight();
 });
 
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     setSectionHeight();
 })
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     setSectionHeight();
 })

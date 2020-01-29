@@ -108,28 +108,32 @@ body {
 
 #search-form {
     margin-top: 8%;
-    margin-left: 15%;
     background: hsl(257, 27%, 26%) url('/img/bg-boost-desktop.svg') no-repeat;
     border-radius: 5px;
-    height: 18vh;
+    height: 110px;
+    width: 100%;
+}
+
+#search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 70%;
+    margin-left: 15%;
 }
 
 #search input[type="text"] {
-    margin-left: 5%;
-    margin-top: 5%;
-    width: 78%;
+    width: 100%;
+    margin: 30px 5px 30px 30px;
     height: 6vh;
-    border: none;
     font-style: inherit;
 }
 
 #search input[type="submit"] {
-    margin-left: 1%;
+    margin: 30px 15px 30px 5px;
     height: 6vh;
-    width: 10%;
-    border: 0;
     border-radius: 6px;
+    border: 0;
     color: white;
     background: #2acfcf;
     font-size: 90%;
@@ -285,9 +289,6 @@ body {
         width: 100%;
         margin: 0;
     }
-    #search input[type="text"] {
-        padding: auto;
-    }
     #boxes {
         display: flex;
         flex-direction: column;
@@ -299,9 +300,8 @@ body {
         flex-direction: column;
         justify-content: space-between;
     }
-    #search input[type="submit"] {
-        width: auto;
-        margin: 1rem;
-        padding: auto;
+    #search {
+        width: 100%;
+        margin: 0;
     }
 }

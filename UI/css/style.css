@@ -27,7 +27,7 @@ main {
     padding: 0 13%;
     align-items: center;
     width: 100%;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     background: #2acfcf;
@@ -138,7 +138,7 @@ main {
 .signup-form select {
     margin-top: 1rem;
     width: 100%;
-    height: 5vh;
+    height: 2.5rem;
     border: 1px solid #c9c7c7;
     border-radius: 5px;
     color: black;
@@ -188,19 +188,9 @@ main {
     padding: 0.2rem 0;
 }
 
-.container {
-    margin-top: 2rem;
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    transition: .5s ease;
-}
-
 .new-announce {
     margin-top: 10rem;
-    position: relative;
-    left: 35%;
-    margin-left: -50px;
+    margin-left: 30%;
 }
 
 .new-announce h2 {
@@ -209,13 +199,10 @@ main {
 }
 
 .new-announce textarea {
-    width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
     width: 350px;
     height: 200px;
-    padding: 4px;
-    padding-left: 30px;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -228,42 +215,37 @@ main {
 }
 
 #boxes {
-    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10%;
 }
 
 #boxes .box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    float: left;
-    left: 29%;
-    text-align: center;
-    width: 30%;
-    padding-right: 2%;
-    padding-left: 2%;
-    padding-bottom: 4%;
-    margin-bottom: 18px;
-    margin-right: 18px;
+    align-items: center;
+    margin: 15px;
+    padding: 15px;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    background: whitesmoke;
+    box-shadow: 0 0 20px #00000026;
+    background: white;
 }
 
 #boxes .boxz {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
     float: left;
     left: 59%;
     text-align: center;
     width: 90%;
-    height: 80vh;
+    height: auto;
     padding-right: 2%;
     padding-left: 2%;
     padding-bottom: 4%;
     margin-left: 2.5rem;
+    margin-top: 3rem;
     margin-bottom: 18px;
     border-radius: 5px 5px 5px 5px;
     border: 0.8px solid #d8d7d7;
@@ -296,6 +278,7 @@ main {
     border: none;
     border-radius: 5px;
     padding-left: 20px;
+    margin-left: 3%;
     padding-right: 15px;
     color: #ffffff;
     cursor: pointer;
@@ -399,11 +382,16 @@ main {
 }
 
 @media(max-width: 768px) {
-    #boxes .box {
-        float: left;
-        width: 100%;
-        margin-bottom: 20.5rem;
-        margin-top: -20rem;
+    #main-nav {
+        display: flex;
+        flex-direction: column;
+    }
+    #boxes {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 5%;
+        margin: 0;
     }
     #boxes .boxz {
         margin-top: 6rem;
