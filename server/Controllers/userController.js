@@ -1,7 +1,5 @@
 /* eslint-disable max-len */
-import hash from 'bcrypt-nodejs';
 import userTokenGenerator from '../Helpers/userTokenGenerator';
-import User from '../Models/user';
 import query from '../Helpers/userQuery';
 import response from '../Helpers/response';
 
@@ -10,29 +8,27 @@ class UserController {
     return res.status(200).json({ status: 200, message: 'Welcome to this API enjoy!' });
   }
 
-  static signUp(req, res) {
-    const user = req.body;
-    user.password = hash.hashSync(user.password);
-    user.id = User.length + 1;
-    query.createUser(user);
+  static async signUp(req, res) {
+    const newUser = req.body;
+    const user = await query.createUser(newUser);
     const tokenData = {
-      id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
+      id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, isAdmin: user.isAdmin,
     };
     const token = userTokenGenerator(tokenData);
     const data = {
-      token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumber, address: user.address, is_admin: user.is_admin,
+      token, id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, phoneNumber: user.phoneNumber, address: user.address, isAdmin: user.isAdmin,
     };
     response.successResponse(res, 201, 'User created successfully', data);
   }
 
-  static login(req, res) {
-    const user = query.findByEmail(req.body.email);
+  static async login(req, res) {
+    const user = await query.findByEmail(req.body.email);
     const tokenData = {
-      id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, is_admin: user.is_admin,
+      id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, isAdmin: user.isAdmin,
     };
     const token = userTokenGenerator(tokenData);
     const data = {
-      token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumber, address: user.address, is_admin: user.is_admin,
+      token, id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, phoneNumber: user.phoneNumber, address: user.address, isAdmin: user.isAdmin,
     };
     response.successResponse(res, 200, 'Logged in successfully', data);
   }

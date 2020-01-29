@@ -5,10 +5,10 @@ import response from '../Helpers/response';
 const validate = (req, res, next) => {
   const user = req.body;
   const {
-    firstname, lastname, email, password, phoneNumber, address, is_admin,
+    firstName, lastName, email, password, phoneNumber, address, isAdmin,
   } = user;
   const validateUser = userSchema.validate({
-    firstname, lastname, email, password, phoneNumber, address, is_admin,
+    firstName, lastName, email, password, phoneNumber, address, isAdmin,
   });
   if (validateUser.error) {
     return response.failureResponse(res, 400, validateUser.error.details[0].message);
