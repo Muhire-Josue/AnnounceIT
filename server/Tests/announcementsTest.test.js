@@ -7,6 +7,9 @@ import mockData from './data/mockData';
 chai.use(chaiHttp);
 chai.should();
 let userToken = '';
+let anotherUserToken = '';
+let announcementID;
+let announcementStatus = '';
 const { expect } = chai;
 
 describe('Announcement tests', () => {
