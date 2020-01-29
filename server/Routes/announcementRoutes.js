@@ -10,7 +10,7 @@ import authorization from '../Middlewares/authorization';
 import checkAdmin from '../Middlewares/checkAdmin';
 
 const router = express.Router();
-router.post('/api/v1/announcement', authentication, validation, duplication, announcementController.create);
+router.post('/api/v2/announcement', authentication, validation, duplication, announcementController.create);
 router.patch('/api/v1/announcement/:id', authentication, checkId, notFound, authorization, validation, announcementController.update);
 router.get('/api/v1/announcement', authentication, announcementController.all);
 router.get('/api/v1/announcements', authentication, announcementController.findByStatus);

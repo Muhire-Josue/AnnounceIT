@@ -1,8 +1,8 @@
 import query from '../Helpers/announcementQuery';
 import response from '../Helpers/response';
 
-const duplication = (req, res, next) => {
-  const announcementFound = query.findByText(req.body.text);
+const duplication = async (req, res, next) => {
+  const announcementFound = await query.findByText(req.body.text);
   if (announcementFound) {
     return response.failureResponse(res, 409, 'Announcement already exists');
   }

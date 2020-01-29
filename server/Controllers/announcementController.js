@@ -1,15 +1,17 @@
+/* eslint-disable max-len */
 /* eslint-disable radix */
 import validStatus from '../Helpers/validateStatus';
-import Announcement from '../Models/announcement';
 import query from '../Helpers/announcementQuery';
 import response from '../Helpers/response';
+import Annoucement from '../Models/announcement';
 
 class AnnouncementController {
-  static create(req, res) {
+  static async create(req, res) {
     const announcement = req.body;
-    const owner = req.user.firstname;
-    query.createUser(announcement, owner);
-    return response.successResponse(res, 201, 'Announcement created successully', announcement);
+    const owner = req.user.firstName;
+    const userID = parseInt(req.user.id);
+    const newAnnouncement = await query.createUser(announcement, owner, userID);
+    return response.successResponse(res, 201, 'Announcement created successully', newAnnouncement);
   }
 
   static update(req, res) {
@@ -61,7 +63,7 @@ class AnnouncementController {
   }
 
   static allAnnouncements(req, res) {
-    return response.successResponse(res, 200, 'All announcements', Announcement);
+    return response.successResponse(res, 200, 'All announcements', Annoucement);
   }
 }
 export default AnnouncementController;

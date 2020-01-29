@@ -1,19 +1,26 @@
 /* eslint-disable radix */
 import Announcement from '../Models/announcement';
-// import user from '../Models/user';
+import db from '../Models/index';
 
 class AnnouncementQuery {
-  static createUser(announcement, owner) {
-    const today = new Date();
-    const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+  static async createUser(announcement, ownerUser, userID) {
     const newAnnouncement = announcement;
-    newAnnouncement.id = Announcement.length + 1;
-    newAnnouncement.owner = owner;
+    newAnnouncement.owner = ownerUser;
     newAnnouncement.status = 'pending';
     newAnnouncement.text = announcement.text;
-    newAnnouncement.start_date = date;
-    newAnnouncement.end_date = announcement.end_date;
-    Announcement.push(newAnnouncement);
+    newAnnouncement.userId = userID;
+    newAnnouncement.endDate = announcement.endDate;
+    const {
+      text, status, owner, userId, endDate,
+    } = newAnnouncement;
+    const insert = `INSERT INTO
+    announcements(text, status, owner, "endDate", "userId")
+    VALUES($1, $2, $3, $4, $5)
+    returning id, text,status,owner,"endDate","createdDate"`;
+
+    const values = [text, status, owner, endDate, userId];
+    const { rows } = await db.query(insert, values);
+    return rows[0];
   }
 
   static changeStatus(id, status) {
@@ -50,9 +57,9 @@ class AnnouncementQuery {
     return Announcement.splice(announcementIndex, 1);
   }
 
-  static findByText(text) {
-    const announcement = Announcement.find(t => t.text === text);
-    return announcement;
+  static async findByText(text) {
+    const { rows } = await db.query('SELECT * FROM announcements WHERE text=$1', [text]);
+    return rows[0];
   }
 }
 export default AnnouncementQuery;
