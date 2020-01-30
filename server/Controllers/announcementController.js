@@ -62,8 +62,9 @@ class AnnouncementController {
     return response.successResponse(res, 200, 'Status changed successfully', announcement);
   }
 
-  static allAnnouncements(req, res) {
-    return response.successResponse(res, 200, 'All announcements', Annoucement);
+  static async allAnnouncements(req, res) {
+    const announcements = await query.allTheAnnoucements();
+    return response.successResponse(res, 200, 'All announcements', announcements);
   }
 }
 export default AnnouncementController;

@@ -230,4 +230,14 @@ describe('Announcement tests', () => {
         done();
       });
   });
+  it('should view all announcements', (done) => {
+    chai.request(server)
+      .get('/api/v2/announcemente')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('All announcements');
+        done();
+      });
+  });
 });

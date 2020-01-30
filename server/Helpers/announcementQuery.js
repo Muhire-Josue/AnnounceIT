@@ -71,5 +71,10 @@ class AnnouncementQuery {
     const { rows } = await db.query('SELECT * FROM announcements WHERE text=$1', [text]);
     return rows[0];
   }
+
+  static async allTheAnnoucements() {
+    const { rows } = await db.query('SELECT * FROM announcements');
+    return rows;
+  }
 }
 export default AnnouncementQuery;
