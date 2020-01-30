@@ -46,8 +46,9 @@ class AnnouncementQuery {
     return rows;
   }
 
-  static findByStatus(status, owner) {
-    const announcements = Announcement.filter(a => a.owner === owner);
+  static async findByStatus(status, owner) {
+    const { rows } = await db.query('SELECT * FROM announcements WHERE "userId"=$1', [owner]);
+    const announcements = rows;
     return announcements.filter(a => a.status === status);
   }
 

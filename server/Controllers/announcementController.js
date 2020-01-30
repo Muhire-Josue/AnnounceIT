@@ -25,14 +25,14 @@ class AnnouncementController {
     return response.successResponse(res, 200, 'All your announcements', announcements);
   }
 
-  static findByStatus(req, res) {
+  static async findByStatus(req, res) {
     const theSatus = req.query.status;
-    const owner = req.user.firstname;
+    const owner = req.user.id;
     const isValidStatus = validStatus(theSatus);
     if (!isValidStatus) {
       return response.failureResponse(res, 400, 'Invalid Status');
     }
-    const announcements = query.findByStatus(theSatus, owner);
+    const announcements = await query.findByStatus(theSatus, owner);
     if (!announcements.length > 0) {
       return response.failureResponse(res, 404, 'Announcement not found');
     }
