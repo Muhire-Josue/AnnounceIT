@@ -41,9 +41,9 @@ class AnnouncementQuery {
     return result;
   }
 
-  static findAll(id) {
-    const announcements = Announcement.filter(a => a.owner === id);
-    return announcements;
+  static async findAll(ownerUser) {
+    const { rows } = await db.query('SELECT * FROM announcements WHERE "userId"=$1', [ownerUser]);
+    return rows;
   }
 
   static findByStatus(status, owner) {

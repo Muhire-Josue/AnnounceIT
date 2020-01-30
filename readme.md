@@ -12,6 +12,8 @@ AnnounceIT comes in as a solution to broadcasting agencies which will will allow
 
 ### Requirements
 - `Nodejs` - a JavaScript run-time environment that executes JavaScript code outside of a browser
+- `POSTGRES` - a database management system for data persistence
+- `.env.example` - a file that contains all the variable environment for this project
 
 ### SETUP
 First clone it to your machine: 
@@ -42,13 +44,13 @@ npm test
 | `/api/v2/auth/signup` | POST | Create account |
 | `/api/v2/auth/signin` | POST | Login |
 | `/api/v2/announcement` | POST | Create announcement |
-| `/api/v1/announcemente/` | GET | Get all announcements |
-| `/api/v1/announcement` | GET | Get all your announcements |
-| `/api/v1/announcements` | GET | Get all your announcements by status |
-| `/api/v1/announcement/:id` | GET | Get an announcement |
+| `/api/v2/announcemente/` | GET | Get all announcements |
+| `/api/v2/announcement` | GET | Get all your announcements |
+| `/api/v2/announcements` | GET | Get all your announcements by status |
+| `/api/v2/announcement/:id` | GET | Get an announcement |
 | `/api/v2/announcement/:id` | PATCH | Update an announcement |
-| `/api/v1/announcements/:id` | PATCH | Modify the status of an announcement |
-| `/api/v1/announcement/:id` | DELETE | Delete an announcement |
+| `/api/v2/announcements/:id` | PATCH | Modify the status of an announcement |
+| `/api/v2/announcement/:id` | DELETE | Delete an announcement |
 ### How can it be manually tested
 - using [postman](https://www.getpostman.com/downloads/)
 ### Pivotal tracker stories
