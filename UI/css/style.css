@@ -12,6 +12,7 @@ body {
 main {
     min-height: calc(100vh - 3.5rem - 8rem);
     margin-top: 3.5rem;
+    max-height: 100%;
 }
 
 .disable {
@@ -19,70 +20,44 @@ main {
     cursor: not-allowed!important;
 }
 
-.main-header {
+#main-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 13%;
+    align-items: center;
     width: 100%;
-    height: 15vh;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     background: #2acfcf;
-    padding-top: -2rem;
-    margin: 1px auto;
-    padding-top: 18px;
-    z-index: 1;
+    padding-top: 48px;
 }
 
-.main-header>div {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.main-header__brand {
-    color: whitesmoke;
-    text-decoration: none;
-    font-weight: bold;
-    height: 3.5rem;
-    display: inline-block;
-    vertical-align: middle;
-}
-.main-header a {
-    margin-left: 40px;
-    padding-top: 25px;
-}
-
-.main-nav {
-    display: none;
-    margin-bottom: 10px;
-}
-
-.main-nav a {
-    margin-left: -1px;
-}
-
-.main-nav__items {
+.main-nav-item {
+    display: flex;
+    text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 0.5rem;
     list-style: none;
-}
-
-.main-nav__item {
     display: inline-block;
-    margin: 0 1rem;
 }
 
-.main-nav__item a {
+.main-nav-item a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    padding: 0.2rem 0;
     display: inline-block;
     vertical-align: middle;
-    padding-left: 5px;
-    margin-top: -170px;
 }
 
-.main-nav__item a:hover,
-.main-nav__item a:active {
+#branding h1 {
+    color: white;
+    font-weight: bold;
+    padding: 0 2%;
+}
+
+.main-nav-item a:hover, .main-nav-item a:active {
     color: white;
     border-bottom: 2px solid white;
 }
@@ -131,8 +106,7 @@ main {
     text-decoration: none;
 }
 
-.main-footer__link a:hover,
-.main-footer__link a:active {
+.main-footer__link a:hover, .main-footer__link a:active {
     color: #ccc;
 }
 
@@ -145,10 +119,6 @@ main {
     margin-bottom: -2rem;
 }
 
-.signup-form {
-    padding: 1rem;
-}
-
 .signup-form label {
     font-weight: bold;
     color: #13ddc9;
@@ -158,19 +128,17 @@ main {
 }
 
 .signup-form input {
-    display: block;
     margin-top: 1rem;
     width: 100%;
-    height: 5vh;
+    height: 2.5rem;
     border: 1px solid #c9c7c7;
     border-radius: 5px;
 }
 
 .signup-form select {
-    display: block;
     margin-top: 1rem;
     width: 100%;
-    height: 5vh;
+    height: 2.5rem;
     border: 1px solid #c9c7c7;
     border-radius: 5px;
     color: black;
@@ -181,20 +149,12 @@ main {
     outline: none;
     background: #e7e2e2;
     border-color: #EFF9F9;
-    
 }
 
 .signup-form select:focus {
     outline: none;
     background: #e7e2e2;
     border-color: #EFF9F9;
-    
-}
-
-
-.signup-form input:hover {
-    background: white;
-    color: #746e6e
 }
 
 .form-btn {
@@ -228,19 +188,9 @@ main {
     padding: 0.2rem 0;
 }
 
-.container {
-    margin-top: 2rem;
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    transition: .5s ease;
-}
-
 .new-announce {
     margin-top: 10rem;
-    position: relative;
-    left: 35%;
-    margin-left: -50px;
+    margin-left: 30%;
 }
 
 .new-announce h2 {
@@ -249,13 +199,10 @@ main {
 }
 
 .new-announce textarea {
-    width: 100%;
     margin-bottom: 5px;
     font-weight: bold;
     width: 350px;
     height: 200px;
-    padding: 4px;
-    padding-left: 30px;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -268,42 +215,37 @@ main {
 }
 
 #boxes {
-    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10%;
 }
 
 #boxes .box {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    float: left;
-    left: 29%;
-    text-align: center;
-    width: 30%;
-    padding-right: 2%;
-    padding-left: 2%;
-    padding-bottom: 4%;
-    margin-bottom: 18px;
-    margin-right: 18px;
+    align-items: center;
+    margin: 15px;
+    padding: 15px;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    background: whitesmoke;
+    box-shadow: 0 0 20px #00000026;
+    background: white;
 }
 
 #boxes .boxz {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
     float: left;
     left: 59%;
     text-align: center;
     width: 90%;
-    height: 80vh;
+    height: auto;
     padding-right: 2%;
     padding-left: 2%;
     padding-bottom: 4%;
     margin-left: 2.5rem;
+    margin-top: 3rem;
     margin-bottom: 18px;
     border-radius: 5px 5px 5px 5px;
     border: 0.8px solid #d8d7d7;
@@ -336,6 +278,7 @@ main {
     border: none;
     border-radius: 5px;
     padding-left: 20px;
+    margin-left: 3%;
     padding-right: 15px;
     color: #ffffff;
     cursor: pointer;
@@ -436,25 +379,29 @@ main {
         display: inline-block;
         margin: 0 1rem;
     }
-
 }
 
 @media(max-width: 768px) {
-    #boxes .box {
-        float: left;
-        width: 100%;
-        margin-bottom: 20.5rem;
-        margin-top: -20rem;
+    #main-nav {
+        display: flex;
+        flex-direction: column;
     }
-    #boxes .boxz{
+    #boxes {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 5%;
+        margin: 0;
+    }
+    #boxes .boxz {
         margin-top: 6rem;
         height: auto;
         width: auto;
     }
-    .new-announce textarea{
+    .new-announce textarea {
         height: 450px;
         width: auto;
-        }
+    }
     .mentor-info {
         padding-bottom: 1rem;
         border: 2px solid gray;
@@ -471,8 +418,13 @@ main {
     .main-footer {
         margin-bottom: -18rem;
     }
-
     .main-header__brand {
         padding-bottom: 3rem;
+    }
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 }

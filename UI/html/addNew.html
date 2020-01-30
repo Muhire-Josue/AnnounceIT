@@ -12,27 +12,27 @@
 </head>
 
 <body>
-    <header class="main-header">
-        <a href="../index.html" class="main-header__brand">
-            <h3>AnnounceIT</h3>
-        </a>
-        <nav class="main-nav">
-            <ul class="main-nav__items">
-                <li class="main-nav__item">
+    <nav id="main-nav">
+        <div id="branding">
+            <h1>AnnounceIT</h1>
+        </div>
+        <div class="main-nav-item-container">
+            <ul class="main-nav-items">
+                <li class="main-nav-item">
                     <a href="../index.html">Home</a>
                 </li>
-                <li class="main-nav__item active">
-                    <a href="addNew.html">New Ad</a>
+                <li class="main-nav-item active">
+                    <a href=" addNew.html">New Ad</a>
                 </li>
-                <li class="main-nav__item">
-                    <a href="myAnnouncement.html">My Ads</a>
+                <li class="main-nav-item">
+                    <a href=" myAnnouncement.html">My Ads</a>
                 </li>
-                <li class="main-nav__item">
+                <li class="main-nav-item">
                     <a href="allAds.html">All Ads</a>
                 </li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <div id="main">
         <section class="container">
@@ -41,7 +41,8 @@
                 <form action="" class="quote">
                     <div>
                         <label></label><br>
-                        <textarea name="ads" placeholder="Annoucement description ..." required onkeyup="validateAds()"></textarea>
+                        <textarea name="ads" placeholder="Annoucement description ..." required
+                            onkeyup="validateAds()"></textarea>
                     </div>
                     <a href="modify.html" class="form-btn">Publish</a>
                 </form>
