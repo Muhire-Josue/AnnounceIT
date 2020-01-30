@@ -145,4 +145,36 @@ describe('Announcement tests', () => {
         done();
       });
   });
+  it('should get all announcements with a specific status', (done) => {
+    chai.request(server)
+      .get(`/api/v2/announcements?status=${announcementStatus}`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('Announcements by status');
+        done();
+      });
+  });
+
+  it('should not get all announcements if no announcement is found with that status', (done) => {
+    chai.request(server)
+      .get('/api/v2/announcements?status=active')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(404);
+        expect(res.body.error).to.equal('Announcement not found');
+        done();
+      });
+  });
+
+  it('should not get all announcements with invalid status', (done) => {
+    chai.request(server)
+      .get('/api/v2/announcements?status=abc')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(400);
+        expect(res.body.error).to.equal('Invalid Status');
+        done();
+      });
+  });
 });
