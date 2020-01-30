@@ -46,7 +46,7 @@ npm test
 | `/api/v1/announcement` | GET | Get all your announcements |
 | `/api/v1/announcements` | GET | Get all your announcements by status |
 | `/api/v1/announcement/:id` | GET | Get an announcement |
-| `/api/v1/announcement/:id` | PATCH | Modify an announcement |
+| `/api/v2/announcement/:id` | PATCH | Update an announcement |
 | `/api/v1/announcements/:id` | PATCH | Modify the status of an announcement |
 | `/api/v1/announcement/:id` | DELETE | Delete an announcement |
 ### How can it be manually tested
