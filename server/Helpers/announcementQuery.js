@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable radix */
 import Announcement from '../Models/announcement';
 import db from '../Models/index';
@@ -29,12 +30,15 @@ class AnnouncementQuery {
     return Announcement[announcementIndex];
   }
 
-  static updateAnnouncement(id, data) {
-    const announcementID = parseInt(id);
-    const announcementIndex = Announcement.findIndex(a => a.id === announcementID);
-    Announcement[announcementIndex].text = data.text;
-    Announcement[announcementIndex].end_date = data.end_date;
-    return Announcement[announcementIndex];
+  static async updateAnnouncement(id, data) {
+    const { text, endDate } = data;
+    const { rows } = await db.query('SELECT * FROM announcements WHERE id=$1', [id]);
+    const announcement = rows[0];
+    const updateQuery = 'UPDATE announcements SET text=$1, status=$2, owner=$3, "endDate"=$4, "userId"=$5 WHERE id=$6 RETURNING id, text,status,owner,"endDate","createdDate"';
+    const values = [text, announcement.status, announcement.owner, endDate, announcement.userId, id];
+    const change = await db.query(updateQuery, values);
+    const result = change.rows;
+    return result;
   }
 
   static findAll(id) {
@@ -47,8 +51,9 @@ class AnnouncementQuery {
     return announcements.filter(a => a.status === status);
   }
 
-  static findById(id) {
-    return Announcement.find(a => a.id === id);
+  static async findById(id) {
+    const { rows } = await db.query('SELECT * FROM announcements WHERE id=$1', [id]);
+    return rows[0];
   }
 
   static deleteAnnouncement(id) {
