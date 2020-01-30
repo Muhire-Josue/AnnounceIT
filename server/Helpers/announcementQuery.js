@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 /* eslint-disable radix */
-import Announcement from '../Models/announcement';
 import db from '../Models/index';
 
 class AnnouncementQuery {
@@ -61,10 +60,8 @@ class AnnouncementQuery {
     return rows[0];
   }
 
-  static deleteAnnouncement(id) {
-    const announcement = Announcement.find(a => a.id === id);
-    const announcementIndex = Announcement.indexOf(announcement);
-    return Announcement.splice(announcementIndex, 1);
+  static async deleteAnnouncement(id) {
+    await db.query('DELETE FROM announcements WHERE id=$1', [id]);
   }
 
   static async findByText(text) {
