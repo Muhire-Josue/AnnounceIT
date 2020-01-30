@@ -98,4 +98,41 @@ describe('Announcement tests', () => {
         done();
       });
   });
+  it('should update an announcement', (done) => {
+    const user = mockData[6];
+    chai.request(server)
+      .patch(`/api/v2/announcement/${announcementID}`)
+      .send(user)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('Announcement updated successfully');
+        done();
+      });
+  });
+
+  it('should not update an announcement if not found', (done) => {
+    const user = mockData[6];
+    chai.request(server)
+      .patch('/api/v2/announcement/0')
+      .send(user)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(404);
+        expect(res.body.error).to.equal('Announcement not found');
+        done();
+      });
+  });
+  it('should not update others announcements', (done) => {
+    const user = mockData[6];
+    chai.request(server)
+      .patch(`/api/v2/announcement/${announcementID}`)
+      .send(user)
+      .set('Authorization', `Bearer ${anotherUserToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(401);
+        expect(res.body.error).to.equal('Unauthorized access');
+        done();
+      });
+  });
 });

@@ -9,7 +9,7 @@ const validate = (req, res, next) => {
   } = user;
   const validateUser = userSchema.validate({
     firstName, lastName, email, password, phoneNumber, address, isAdmin,
-  });
+  }, { abortEarly: false });
   if (validateUser.error) {
     return response.failureResponse(res, 400, validateUser.error.details[0].message);
   }

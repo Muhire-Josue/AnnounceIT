@@ -14,8 +14,8 @@ class AnnouncementController {
     return response.successResponse(res, 201, 'Announcement created successully', newAnnouncement);
   }
 
-  static update(req, res) {
-    const updatedAnnouncement = query.updateAnnouncement(req.params.id, req.body);
+  static async update(req, res) {
+    const updatedAnnouncement = await query.updateAnnouncement(req.params.id, req.body);
     return response.successResponse(res, 200, 'Announcement updated successfully', updatedAnnouncement);
   }
 
