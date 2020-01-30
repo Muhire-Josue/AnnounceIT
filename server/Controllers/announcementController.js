@@ -39,9 +39,9 @@ class AnnouncementController {
     return response.successResponse(res, 200, 'Announcements by status', announcements);
   }
 
-  static getAnnouncement(req, res) {
+  static async getAnnouncement(req, res) {
     const id = parseInt(req.params.id);
-    const announcement = query.findById(id);
+    const announcement = await query.findById(id);
     return response.successResponse(res, 200, 'Annoucement', announcement);
   }
 
