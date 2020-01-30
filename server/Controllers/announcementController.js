@@ -41,7 +41,7 @@ class AnnouncementController {
   static async getAnnouncement(req, res) {
     const id = parseInt(req.params.id);
     const announcement = await query.findById(id);
-    return response.successResponse(res, 200, 'Annoucement', announcement);
+    return response.successResponse(res, 200, 'Here is your Annoucement', announcement);
   }
 
   static delete(req, res) {
@@ -63,6 +63,9 @@ class AnnouncementController {
 
   static async allAnnouncements(req, res) {
     const announcements = await query.allTheAnnoucements();
+    if (!announcements.length > 0) {
+      return response.failureResponse(res, 404, 'Announcements not found');
+    }
     return response.successResponse(res, 200, 'All announcements', announcements);
   }
 }

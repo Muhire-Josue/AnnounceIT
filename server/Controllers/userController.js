@@ -30,7 +30,7 @@ class UserController {
     const data = {
       token, id: user.id, firstName: user.firstName, lastName: user.lastName, email: user.email, phoneNumber: user.phoneNumber, address: user.address, isAdmin: user.isAdmin,
     };
-    response.successResponse(res, 200, 'Logged in successfully', data);
+    response.successResponse(res, 200, 'User logged in successfully', data);
   }
 }
 export default UserController;
