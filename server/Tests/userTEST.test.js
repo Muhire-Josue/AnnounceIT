@@ -61,7 +61,7 @@ describe('User tests', () => {
       .send(user)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('Logged in successfully');
+        expect(res.body.message).to.equal('User logged in successfully');
         done();
       });
   });

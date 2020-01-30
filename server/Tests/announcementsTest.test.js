@@ -183,7 +183,7 @@ describe('Announcement tests', () => {
       .set('Authorization', `Bearer ${userToken}`)
       .end((error, res) => {
         res.body.status.should.be.equal(200);
-        expect(res.body.message).to.equal('Annoucement');
+        expect(res.body.message).to.equal('Here is your Annoucement');
         done();
       });
   });
@@ -258,6 +258,16 @@ describe('Announcement tests', () => {
       .end((error, res) => {
         res.body.status.should.be.equal(200);
         expect(res.body.message).to.equal('Announcement Deleted successfully');
+        done();
+      });
+  });
+  it('should view all announcements', (done) => {
+    chai.request(server)
+      .get('/api/v2/announcemente')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(404);
+        expect(res.body.error).to.equal('Announcements not found');
         done();
       });
   });
