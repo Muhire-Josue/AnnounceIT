@@ -38,10 +38,10 @@ npm test
 ### API ENDPOINTS
 | API | Methods  | Description  |
 | ------- | --- | --- |
-| `/api/v1/` | GET | Welcome message |
-| `/api/v1/auth/signup` | POST | Create account |
-| `/api/v1/auth/signin` | POST | Login |
-| `/api/v1/announcement` | POST | Create announcement |
+| `/api/v2/` | GET | Welcome message |
+| `/api/v2/auth/signup` | POST | Create account |
+| `/api/v2/auth/signin` | POST | Login |
+| `/api/v2/announcement` | POST | Create announcement |
 | `/api/v1/announcemente/` | GET | Get all announcements |
 | `/api/v1/announcement` | GET | Get all your announcements |
 | `/api/v1/announcements` | GET | Get all your announcements by status |
