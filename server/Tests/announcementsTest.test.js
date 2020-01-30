@@ -135,4 +135,14 @@ describe('Announcement tests', () => {
         done();
       });
   });
+  it('should get all announcements', (done) => {
+    chai.request(server)
+      .get('/api/v2/announcement/')
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('All your announcements');
+        done();
+      });
+  });
 });

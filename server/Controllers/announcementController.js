@@ -19,9 +19,9 @@ class AnnouncementController {
     return response.successResponse(res, 200, 'Announcement updated successfully', updatedAnnouncement);
   }
 
-  static all(req, res) {
-    const owner = req.user.firstname;
-    const announcements = query.findAll(owner);
+  static async all(req, res) {
+    const owner = req.user.id;
+    const announcements = await query.findAll(owner);
     return response.successResponse(res, 200, 'All your announcements', announcements);
   }
 
