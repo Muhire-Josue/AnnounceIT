@@ -3,7 +3,6 @@
 import validStatus from '../Helpers/validateStatus';
 import query from '../Helpers/announcementQuery';
 import response from '../Helpers/response';
-import Annoucement from '../Models/announcement';
 
 class AnnouncementController {
   static async create(req, res) {

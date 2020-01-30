@@ -9,7 +9,10 @@ const userSchema = Joi.object().keys({
     .required(),
   email: Joi.string().trim(true).email().required(),
   password: Joi.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/).required().options({ language: { string: { regex: { base: 'must be an alphanumeric with uppercase and the length not less than 8!' } } } }),
-  phoneNumber: Joi.string().trim(true).min(10).required(),
+  phoneNumber: Joi.string()
+    .required()
+    .trim()
+    .regex(/((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}/),
   address: Joi.string().trim(true).min(3).required(),
   isAdmin: Joi.boolean().valid([false, true]),
 });
