@@ -209,4 +209,25 @@ describe('Announcement tests', () => {
         done();
       });
   });
+  it('should change the status an announcement', (done) => {
+    chai.request(server)
+      .patch(`/api/v2/announcements/${announcementID}?status=active`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(200);
+        expect(res.body.message).to.equal('Status changed successfully');
+        done();
+      });
+  });
+
+  it('should not change the status an announcement provided invalid status', (done) => {
+    chai.request(server)
+      .patch(`/api/v2/announcements/${announcementID}?status=notAStatus`)
+      .set('Authorization', `Bearer ${userToken}`)
+      .end((error, res) => {
+        res.body.status.should.be.equal(400);
+        expect(res.body.error).to.equal('Invalid Status');
+        done();
+      });
+  });
 });

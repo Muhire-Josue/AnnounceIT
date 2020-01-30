@@ -51,14 +51,14 @@ class AnnouncementController {
     return response.deleteResponse(res, 200, 'Announcement Deleted successfully');
   }
 
-  static changeStatus(req, res) {
+  static async changeStatus(req, res) {
     const id = parseInt(req.params.id);
     const theStatus = req.query.status;
     const isValidStatus = validStatus(theStatus);
     if (!isValidStatus) {
       return response.failureResponse(res, 400, 'Invalid Status');
     }
-    const announcement = query.changeStatus(id, theStatus);
+    const announcement = await query.changeStatus(id, theStatus);
     return response.successResponse(res, 200, 'Status changed successfully', announcement);
   }
 

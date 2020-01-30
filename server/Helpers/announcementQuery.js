@@ -24,10 +24,14 @@ class AnnouncementQuery {
     return rows[0];
   }
 
-  static changeStatus(id, status) {
-    const announcementIndex = Announcement.findIndex(a => a.id === id);
-    Announcement[announcementIndex].status = status;
-    return Announcement[announcementIndex];
+  static async changeStatus(id, status) {
+    const { rows } = await db.query('SELECT * FROM announcements WHERE id=$1', [id]);
+    const announcement = rows[0];
+    const updateQuery = 'UPDATE announcements SET text=$1, status=$2, owner=$3, "endDate"=$4, "userId"=$5 WHERE id=$6 RETURNING id, text,status,owner,"endDate","createdDate"';
+    const values = [announcement.text, status, announcement.owner, announcement.endDate, announcement.userId, id];
+    const change = await db.query(updateQuery, values);
+    const result = change.rows;
+    return result;
   }
 
   static async updateAnnouncement(id, data) {
